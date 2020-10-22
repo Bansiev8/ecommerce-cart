@@ -2,16 +2,16 @@
   text-align: center;
 }
 
-nav{
+nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background: rgb(56, 97, 110);
+  background-image: url("./images/cover.jpg");
   color: white;
 }
 
-.nav-links{
+.nav-links {
   width: 40%;
   display: flex;
   justify-content: space-around;

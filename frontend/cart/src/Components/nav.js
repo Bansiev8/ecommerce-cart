@@ -11,7 +11,7 @@ function Nav() {
     <nav>
       <h3>Task-3</h3>
       <ul class='nav-links'>
-        <Link style={navStyle} to='/'>
+        <Link style={navStyle} to='/Components/Home'>
           <li>Home</li>
         </Link>
         <Link style={navStyle} to='/Components/productDescription'>

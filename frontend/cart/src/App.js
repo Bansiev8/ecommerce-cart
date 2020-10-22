@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "./Components/nav";
+import Home from "./Components/Home";
 import Cart from "./Components/cart";
 import Description from "./Components/productDescription";
 import "./App.css";
@@ -11,7 +12,7 @@ function App() {
       <div className='App'>
         <Nav />
         <Switch>
-          <Route path='/' exact component={Home} />
+          <Route path='/Components/Home' component={Home} />
           <Route path='/Components/cart' component={Cart} />
           <Route
             path='/Components/productDescription'
@@ -20,14 +21,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h1>Products here</h1>
-    </div>
   );
 }
 

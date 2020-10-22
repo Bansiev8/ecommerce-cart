@@ -7,7 +7,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-image: url("./images/cover.jpg");
+  background-image: url("./images/cover1.jpg");
   color: white;
 }
 
@@ -16,7 +16,16 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  list-style: none;
-  color: white;
   text-decoration: none;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: cursive;
+}
+
+.cart ion-icon {
+  vertical-align: bottom;
+  font-size: 20px;
+  padding-right: 5px;
+  cursor: pointer;
 }

@@ -4,12 +4,12 @@ import MyItems from './MyItems';
 import {useSelector} from 'react-redux';
 
 const Cart = () => {
-  const allActivities = useSelector((state) => state.activities) //this brings the whole global state with key named activities
+  const items = useSelector((state) => state) //this brings the whole global state with key named activities
   return (
     <div className="cart">
-      {allActivities.map(activity => {
-        return(<MyItems key={activity.id} name={activity.name} id={activity.id}/>)
-      })}
+      {items.map((item) => 
+        <MyItems key={item.id} name={item.name} id={item.id} />
+      )}
       <h1>Total :</h1>
     </div>
   );

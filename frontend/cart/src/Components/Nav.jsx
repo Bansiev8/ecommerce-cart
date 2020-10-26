@@ -1,30 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import React from 'react';
+import './Components.css';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-function Nav() {
-  const navStyle = {
-    color: "white",
-  };
+const Navbar = () => {
 
-  return (
+  const itemCount =useSelector((state) => state.length);
+
+  return(
     <nav>
-      <h3>Task-3</h3>
-      <ul class='nav-links'>
-        <Link style={navStyle} to='/Components/Home'>
-          <li>Home</li>
-        </Link>
-        <Link style={navStyle} to='/Components/productDescription'>
-          <li>Product Details</li>
-        </Link>
-        <Link style={navStyle} to='/Components/cart'>
-          <li className='cart'>
-            <ion-icon name='cart-outline'></ion-icon>Cart<span>(0)</span>
-          </li>
-        </Link>
+      <h2>Shopping task</h2>
+      <ul className="nav-links">
+        <li><Link to = "/">Home</Link></li>
+        <li><Link to = "/cart">Cart({itemCount})</Link></li>
       </ul>
     </nav>
   );
 }
 
-export default Nav;
+export default Navbar;

@@ -1,6 +1,7 @@
-import { combineReducers } from "redux";
-import basketReducer from "./basketReducer";
+import { combineReducers } from 'redux';
+import cartReducer from './cartReducer';
+import total from './totalReducer';
 
 export default combineReducers({
-  baketState: basketReducer,
+  cart: cartReducer,
 });

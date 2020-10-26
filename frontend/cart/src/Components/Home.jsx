@@ -1,58 +1,33 @@
-import React, { useState } from "react";
-import "../App.css";
-import MacBook from "../images/MacBook.jpg";
-import headphones from "../images/headphones.jpg";
-import sneakers from "../images/sneakers.jpg";
-import redmi from "../images/redmi9.png";
-import potato from "../images/potato.JPG";
-import { connect } from "react-redux";
-import { addBasket } from "../actions/addAction";
+import React from 'react';
+import Products from './productsList';
+import { useDispatch } from 'react-redux';
+import {AddItem} from '../actions/mainActivities';
+import {Link} from 'react-router-dom';
+import './Components.css';
 
-const Home = (props) => {
-  console.log(props);
-  return (
-    <div className='container'>
-      <div className='image'>
-        <img src={MacBook} width='200' height='200' alt='MacBook' />
-        <h3>Apple MacBook Pro</h3>
-        <a onClick={props.addBasket} className='addToCart cart1' href='#'>
-          Add to cart
-        </a>
-      </div>
+const Home = () => {
+  const quantity = 1;
+  const dispatch = useDispatch();
 
-      <div className='image'>
-        <img src={headphones} width='200' height='200' alt='Headphones' />
-        <h3>Cosmic Byte GS410 Headphones</h3>
-        <a onClick={props.addBasket} className='addToCart cart2' href='#'>
-          Add to cart
-        </a>
-      </div>
-
-      <div className='image'>
-        <img src={sneakers} width='200' height='200' alt='Sneakers' />
-        <h3>Woodland Men's Sneakers</h3>
-        <a onClick={props.addBasket} className='addToCart cart3' href='#'>
-          Add to cart
-        </a>
-      </div>
-
-      <div className='image'>
-        <img src={redmi} width='200' height='200' alt='Redmi 9' />
-        <h3>Redmi 9</h3>
-        <a onClick={props.addBasket} className='addToCart cart4' href='#'>
-          Add to cart
-        </a>
-      </div>
-
-      <div className='image'>
-        <img src={potato} width='200' height='200' alt='Potato' />
-        <h3>Fresh Organic Potato</h3>
-        <a onClick={props.addBasket} className='addToCart cart5' href='#'>
-          Add to cart
-        </a>
-      </div>
+  return(
+    <div>
+    {
+      Products.map(product =>
+          <div key={product.id}>
+            <div className="product_card">
+              <Link to={`/product/${product.id}`}>
+                <h3>{product.name}</h3>
+                <h4>&#x20B9; {product.cost[0]}</h4>
+              </Link>
+              <Link to="/cart">
+                <button disabled={product.stock===0} onClick={dispatch(AddItem(product, quantity))}> {product.stock? "Add to Cart" : "Out of Stock"} </button>
+              </Link>
+            </div>
+          </div>
+        )
+    }
     </div>
   );
-};
+}
 
-export default connect(null, { addBasket })(Home);
+export default Home;

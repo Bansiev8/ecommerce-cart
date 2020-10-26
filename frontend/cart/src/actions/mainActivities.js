@@ -2,13 +2,13 @@ const ADD_TO_CART = "ADD_TO_CART";
 const DELETE_ITEM = "DELETE_ITEM";
 const TOTAL = "TOTAL";
 
-export const AddItem = ({product, quantity}) => ({
+export const AddItem = ({product, quantity, cost}) => ({
   type: ADD_TO_CART,
   payload: {
     id: product.id,
     name: product.name,
     quantity: quantity,
-    cost: product.cost
+    cost: product.cost[0]
   }
 })
 

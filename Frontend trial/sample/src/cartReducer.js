@@ -16,6 +16,7 @@ export const deleteItem = () => ({
 
 function cartReducer(state = [], action) {
   switch(action.type) {
+
     case ADD_ITEM: 
       let items = state.filter((item) => item.id === action.payload.id)
       if (items.length !== 0) {
@@ -23,6 +24,7 @@ function cartReducer(state = [], action) {
         return [...state.slice(0, index), action.payload, ...state.slice(index + 1)]
       }
       return state.concat(action.payload)
+      
     case DELETE_ITEM:
       let deleteFilterItem = state.filter((item) => item.id === action.payload.id)
       if (deleteFilterItem.length !== 0) {
